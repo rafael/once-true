@@ -1,0 +1,26 @@
+This plugin helps when you expect a behaviour that once evalautes someway and after that will always behave the same way. Kind of tricky explanation but hope the examples shows the usage.
+
+First, the function expects to lambdas, the first one is the one that will be evaluate it the first time. The second would be the one that will be evaluate it further. Let's see it in action.
+
+>> a = lambda  { puts "This is the first time"}
+>> b = lambda  { puts "I'm not the first"}
+>> c = once_true(a,b)
+>> c.call
+   This is the first time
+>> c.call
+   I'm not the first
+>> c.call
+   I'm not the first
+
+You can also create lambdas that expects arguments e.g
+
+>> a = lambda {|a,b| a+b}
+>> b = lambda {|a,b| a*b}
+>> c = once_true(a,b)
+>> c.call(3,2)
+   5
+>> c.call
+   6
+>> c.alll
+   6
+	
